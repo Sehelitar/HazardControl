@@ -30,7 +30,6 @@ public class Plugin : BaseUnityPlugin
         _globalHarmony = new Harmony("HazardControl");
         _globalHarmony.PatchAll();
         
-        Config.SaveOnConfigSet = false;
         GameConfig = new PluginConfigStruct
         {
             TurretsKey = Config.Bind("Keys", "TurretsKey", true, @"Allows the use of keys to disable turrets."),
@@ -40,6 +39,7 @@ public class Plugin : BaseUnityPlugin
             MinesZap = Config.Bind("Zap", "MinesZap", true, @"Allows the use of ZapGun to trigger mines."),
             EnemiesTriggerMines = Config.Bind("General", "EnemiesTriggerMines", true, @"Enemies can trigger mines when they walk on it."),
         };
+        Config.SaveOnConfigSet = false;
     }
     
     private static void PatchNetwork()
